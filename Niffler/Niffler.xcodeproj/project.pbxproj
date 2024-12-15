@@ -21,6 +21,7 @@
 		74BDA2382C615C11001B7630 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BDA2372C615C11001B7630 /* LoginPage.swift */; };
 		74D55B7A2BE12B9600AEF67D /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D55B792BE12B9600AEF67D /* LoginUITests.swift */; };
 		A02042C42D0EC3E50034D556 /* RegistrationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02042C32D0EC3E50034D556 /* RegistrationPage.swift */; };
+		A02042C62D0ECF9D0034D556 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02042C52D0ECF9D0034D556 /* ProfilePage.swift */; };
 		A056D10D2CFFA6DD006DB6B9 /* RegistrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056D10C2CFFA6DD006DB6B9 /* RegistrationUITests.swift */; };
 		A90083552BBA870400EB9D32 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90083542BBA870400EB9D32 /* AppColors.swift */; };
 		A90083592BBA8CD100EB9D32 /* YoungSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90083582BBA8CD100EB9D32 /* YoungSerif-Regular.ttf */; };
@@ -71,6 +72,7 @@
 		74D55B772BE12B9600AEF67D /* NifflerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NifflerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D55B792BE12B9600AEF67D /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 		A02042C32D0EC3E50034D556 /* RegistrationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage.swift; sourceTree = "<group>"; };
+		A02042C52D0ECF9D0034D556 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		A056D10C2CFFA6DD006DB6B9 /* RegistrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUITests.swift; sourceTree = "<group>"; };
 		A90083542BBA870400EB9D32 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		A90083582BBA8CD100EB9D32 /* YoungSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YoungSerif-Regular.ttf"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				74BDA2352C615BFA001B7630 /* SpendsPage.swift */,
 				74BDA2332C615BDD001B7630 /* NewSpendPage.swift */,
 				A02042C32D0EC3E50034D556 /* RegistrationPage.swift */,
+				A02042C52D0ECF9D0034D556 /* ProfilePage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				A056D10D2CFFA6DD006DB6B9 /* RegistrationUITests.swift in Sources */,
 				74D55B7A2BE12B9600AEF67D /* LoginUITests.swift in Sources */,
+				A02042C62D0ECF9D0034D556 /* ProfilePage.swift in Sources */,
 				74BDA2382C615C11001B7630 /* LoginPage.swift in Sources */,
 				74BDA22D2C614D47001B7630 /* BasePage.swift in Sources */,
 				74BDA22F2C614D8D001B7630 /* SpendsUITests.swift in Sources */,

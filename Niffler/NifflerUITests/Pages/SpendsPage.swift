@@ -28,13 +28,14 @@ class SpendsPage: BasePage {
         app.buttons["addSpendButton"].tap()
     }
     
-    func assertNewSpendIsShown(title: String, file: StaticString = #filePath, line: UInt = #line) {
+    func assertNewSpendIsShown(title: String, file: StaticString = #filePath, line: UInt = #line) -> Self {
         let isFound = app.firstMatch
             .scrollViews.firstMatch
             .staticTexts[title].firstMatch
             .waitForExistence(timeout: 1)
         
         XCTAssertTrue(isFound, file: file, line: line)
+        return self
     }
     
     func assertIsAddSpendButtonShown(file: StaticString = #filePath, line: UInt = #line) -> Self {
@@ -46,5 +47,28 @@ class SpendsPage: BasePage {
                           file: #file, line: #line)
         }
         return self
+    }
+    
+    func goToProfile() {
+        XCTContext.runActivity(named: "Перехожу на экран профиля") { _ in
+            openMenu()
+            tapProfileButton()
+        }
+    }
+    private func openMenu() {
+        XCTContext.runActivity(named: "Открываю бургер-меню") { _ in
+            let burgerMenu = app.images["ic_menu"]
+            waitForElement(burgerMenu, message: "Бургер меню не отображается")
+            burgerMenu.tap()
+        }
+    }
+
+    private func tapProfileButton() {
+        XCTContext.runActivity(named: "Нажимаю кнопку 'Profile'") { _ in
+            let profileButton = app.buttons["Profile"]
+            waitForElement(profileButton, message: "Кнопка профиля не отображается")
+            XCTAssertTrue(profileButton.isHittable, "Кнопка профиля не кликается")
+            profileButton.tap()
+        }
     }
 }
