@@ -34,6 +34,31 @@ class NewSpendPage: BasePage {
 //        return self
 //    }
     
+    func addSpend(description: String, isNewCategory: Bool) {
+        let categoryName = UUID().uuidString
+        if isNewCategory {
+            pressAddNewCategory()
+                .inputCategoryName(categoryName: categoryName)
+        }
+    
+        inputAmount()
+        .inputDescription(description)
+        .pressAddSpend()
+    }
+    
+    func pressAddNewCategory() -> Self{
+            XCTContext.runActivity(named: "Жму кноку добавления новой категории") { _ in
+                app.buttons["+ New category"].tap()
+            }
+        return self
+    }
+    
+    func inputCategoryName(categoryName: String) {
+         XCTContext.runActivity(named: "Вводим название категории, равное  \(categoryName)") { _ in
+             app.textFields["Name"].typeText(categoryName)
+             app.buttons["Add"].firstMatch.tap()}
+    }
+    
     func pressAddSpend() {
         app.buttons["Add"].tap()
     }

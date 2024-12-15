@@ -27,7 +27,7 @@ class LoginPage: BasePage {
         }
     }
     
-    private func pressLoginButton() {
+    func pressLoginButton() {
         XCTContext.runActivity(named: "Жму кнопку логина") { _ in
             app.buttons["loginButton"].tap()
         }
@@ -41,6 +41,12 @@ class LoginPage: BasePage {
             XCTAssertTrue(isFound,
                           "Не нашли сообщение о неправильном логине",
                           file: file, line: line)
+        }
+    }
+    
+    func goToSignUpPage() {
+        XCTContext.runActivity(named: "Перехожу на страницу регистрации") { _ in
+            app.staticTexts["Create new account"].tap()
         }
     }
     

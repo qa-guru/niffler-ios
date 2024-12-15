@@ -36,4 +36,15 @@ class SpendsPage: BasePage {
         
         XCTAssertTrue(isFound, file: file, line: line)
     }
+    
+    func assertIsAddSpendButtonShown(file: StaticString = #filePath, line: UInt = #line) -> Self {
+        XCTContext.runActivity(named: "Ожидание появление кнопки добавления траты") { _ in
+            let isAddSpendButton = app.buttons["addSpendButton"].waitForExistence(timeout: 3)
+
+            XCTAssertTrue(isAddSpendButton,
+                          "Не нашли кнопку добавления траты",
+                          file: #file, line: #line)
+        }
+        return self
+    }
 }
