@@ -43,3 +43,5 @@ extension NifflerApp {
         .environmentObject(spendsRepository)
     }
 }
+
+// Remove this comment
