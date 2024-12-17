@@ -51,7 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		746853762B0CAE9700E48DFE /* Niffler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Niffler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		746853762B0CAE9700E48DFE /* NifflerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NifflerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		746853792B0CAE9700E48DFE /* NifflerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NifflerApp.swift; sourceTree = "<group>"; };
 		7468537B2B0CAE9700E48DFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7468537D2B0CAE9700E48DFE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		746853772B0CAE9700E48DFE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				746853762B0CAE9700E48DFE /* Niffler.app */,
+				746853762B0CAE9700E48DFE /* NifflerApp.app */,
 				74D55B772BE12B9600AEF67D /* NifflerUITests.xctest */,
 			);
 			name = Products;
@@ -223,9 +223,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		746853752B0CAE9700E48DFE /* Niffler */ = {
+		746853752B0CAE9700E48DFE /* NifflerApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7468539C2B0CAE9900E48DFE /* Build configuration list for PBXNativeTarget "Niffler" */;
+			buildConfigurationList = 7468539C2B0CAE9900E48DFE /* Build configuration list for PBXNativeTarget "NifflerApp" */;
 			buildPhases = (
 				746853722B0CAE9700E48DFE /* Sources */,
 				746853732B0CAE9700E48DFE /* Frameworks */,
@@ -235,12 +235,12 @@
 			);
 			dependencies = (
 			);
-			name = Niffler;
+			name = NifflerApp;
 			packageProductDependencies = (
 				749E20F52B0CB0070045F4E3 /* Api */,
 			);
 			productName = Niffler;
-			productReference = 746853762B0CAE9700E48DFE /* Niffler.app */;
+			productReference = 746853762B0CAE9700E48DFE /* NifflerApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		74D55B762BE12B9600AEF67D /* NifflerUITests */ = {
@@ -296,7 +296,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				746853752B0CAE9700E48DFE /* Niffler */,
+				746853752B0CAE9700E48DFE /* NifflerApp */,
 				74D55B762BE12B9600AEF67D /* NifflerUITests */,
 			);
 		};
@@ -369,7 +369,7 @@
 /* Begin PBXTargetDependency section */
 		74D55B7E2BE12B9600AEF67D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 746853752B0CAE9700E48DFE /* Niffler */;
+			target = 746853752B0CAE9700E48DFE /* NifflerApp */;
 			targetProxy = 74D55B7D2BE12B9600AEF67D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -516,7 +516,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.akaDuality.Niffler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qaGuru.Niffler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -546,7 +546,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.akaDuality.Niffler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qaGuru.Niffler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -602,7 +602,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7468539C2B0CAE9900E48DFE /* Build configuration list for PBXNativeTarget "Niffler" */ = {
+		7468539C2B0CAE9900E48DFE /* Build configuration list for PBXNativeTarget "NifflerApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7468539D2B0CAE9900E48DFE /* Debug */,

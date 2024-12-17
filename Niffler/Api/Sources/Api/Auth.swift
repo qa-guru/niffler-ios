@@ -50,6 +50,10 @@ public class Auth: Network {
         userDefaults.removeObject(forKey: "UserAuthToken")
     }
     
+    public static func saveAuth(_ token: String) {
+        userDefaults.set(token, forKey: "UserAuthToken")
+    }
+    
     init(
         challenge: String? = nil
     ) {
