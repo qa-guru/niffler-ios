@@ -84,7 +84,7 @@ public class Auth: Network {
         
         let decoder = JSONDecoder()
         let tokenDto = try decoder.decode(TokenDto.self, from: tokenData)
-        self.authorizationHeader = "Bearer " + tokenDto.id_token
+        self.authorizationHeader = tokenDto.id_token
         
         loginContinuation?.resume()
         // TODO: Should set continuation to nil?
@@ -207,7 +207,10 @@ public class Auth: Network {
     }
     
     private func logoutRequest() -> URLRequest {
-        var request = URLRequest(url: base.appending(path: "logout"))
+        
+        let url = base.appending(path: "connect/logout")
+            .appending(queryItems: [URLQueryItem(name: "id_token_hint", value: authorizationHeader)])
+        var request = URLRequest(url: url)
         
         request.httpMethod = "GET"
         request.setValue("application/x-www-form-urlencoded",

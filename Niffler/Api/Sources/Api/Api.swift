@@ -40,7 +40,7 @@ public class Api: Network {
     func updateAuthorizationHeader(in request: inout URLRequest) {
         if let authorization = auth.authorizationHeader {
             // Rewrite header, instead of appending to allow retry with different authorization
-            request.allHTTPHeaderFields?["Authorization"] = authorization
+            request.allHTTPHeaderFields?["Authorization"] = "Bearer " + authorization
         }
     }
     
