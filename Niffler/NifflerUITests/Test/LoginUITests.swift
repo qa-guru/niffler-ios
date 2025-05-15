@@ -27,9 +27,26 @@ final class LoginUITests: XCTestCase {
         
         assertLoginErrorShown()
         
-        
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    
+    
+    
+    func testRegistration() throws {
+        let login = "taty" + ICMPV6CTL_ERRPPSLIMIT_RANDOM_INCR.description
+        let password = "12345"
+        
+        pressRegistrationButton()
+        input(login: login, password: password, repeatPassword: password)
+        
+        assertSuccessRegistration()
+        
+        tapLoginBtn()
+        
+        assertLoginAndPasswordSetInLoginForm(login: login, password: password)
+    }
+    
+    
     
     
     
@@ -52,16 +69,19 @@ final class LoginUITests: XCTestCase {
     
     private func input(login: String) {
         XCTContext.runActivity(named: "Вводим логин \(login)") { _ in
-            app.textFields["userNameTextField"].tap()
-            app.textFields["userNameTextField"].typeText(login)
+            let loginField = app.textFields["userNameTextField"].firstMatch
+            loginField.tap()
+            loginField.typeText(login)
         }
     }
     
     //MARK: - DSL
     private func input(password: String) {
-        XCTContext.runActivity(named: "Вводим логин \(password)") { _ in
-            app.secureTextFields["passwordTextField"].tap()
-            app.secureTextFields["passwordTextField"].typeText(password)
+        XCTContext.runActivity(named: "Вводим пароль \(password)") { _ in
+            app.buttons["passwordTextField"].firstMatch.tap()
+            let passwordInput = app.secureTextFields["passwordTextField"].firstMatch
+            passwordInput.tap()
+            passwordInput.typeText(password)
         }
     }
     
@@ -88,40 +108,53 @@ final class LoginUITests: XCTestCase {
         }
     }
     
+    private func pressRegistrationButton() {
+        XCTContext.runActivity(named: "Нажимаем кнопку 'Create new account'") { _ in
+            app.staticTexts["Create new account"].tap()
+            XCTAssert(app.staticTexts["Sign Up"].waitForExistence(timeout: 3))
+        }
+    }
     
+    private func input(login: String, password: String, repeatPassword: String) {
+        input(login: login)
+        input(password: password)
+        input(reapitPassword: password)
+        pressSignInButton()
+    }
     
-    func testRegistration() throws {
-        let app = XCUIApplication()
-        app.launch()
-        let login = "taty"
-        let password = "12345"
-        
-        app.staticTexts["Create new account"].tap()
-        XCTAssert(app.staticTexts["Sign Up"].waitForExistence(timeout: 3))
-        
-        let userNameField = app.textFields["userNameTextField"].firstMatch
-        userNameField.tap()
-        userNameField.typeText(login)
-        
-        app.buttons["passwordTextField"].firstMatch.tap()
-        let passwordField = app.textFields["passwordTextField"].firstMatch
-        passwordField.tap()
-        passwordField.typeText(password)
-        
-        app.buttons["passwordTextField"].firstMatch.tap()
-        let passwordConfirmField = app.secureTextFields["confirmPasswordTextField"].firstMatch
-        passwordConfirmField.tap()
-        passwordConfirmField.typeText(password)
-        
-        app.buttons["Return"].firstMatch.tap()
-        app.buttons["Sign Up"].firstMatch.tap()
-        
-        XCTAssertEqual("Congratulations!", app.alerts.firstMatch.label)
-        
-        app.buttons["Log in"].firstMatch.tap()
-        
-        XCTAssertEqual(login, app.textFields["userNameTextField"].firstMatch.value as? String)
-        app.buttons["ic_show_hide"].tap()
-        XCTAssertEqual(password, app.textFields["passwordTextField"].firstMatch.value as? String)
+    private func input(reapitPassword: String){
+        XCTContext.runActivity(named: "Вводим пароль повторно") { _ in
+            app.buttons["confirmPasswordTextField"].firstMatch.tap()
+            let passwordConfirmField = app.textFields["confirmPasswordTextField"].firstMatch
+            passwordConfirmField.tap()
+            passwordConfirmField.typeText(reapitPassword)
+        }
+    }
+    
+    private func pressSignInButton() {
+        XCTContext.runActivity(named: "Нажимаем кнопку 'Sign Up'") { _ in
+            app.buttons["Return"].firstMatch.tap()
+            app.buttons["Sign Up"].firstMatch.tap()
+        }
+    }
+    
+    private func tapLoginBtn() {
+        XCTContext.runActivity(named: "Нажимаем кнопку 'Sign In'") { _ in
+            app.buttons["Log in"].firstMatch.tap()
+        }
+    }
+    
+    private func assertSuccessRegistration() {
+        XCTContext.runActivity(named: "Проверка сообщения об успешной регистрации") { _ in
+            XCTAssertEqual("Congratulations!", app.alerts.firstMatch.label)
+        }
+    }
+    
+    private func assertLoginAndPasswordSetInLoginForm(login: String, password: String){
+        XCTContext.runActivity(named: "Проверка, что поля логин и пароль в форме авторизации равны логину и паролю из регистрации") { _ in
+            XCTAssertEqual(login, app.textFields["userNameTextField"].firstMatch.value as? String)
+            app.buttons["ic_show_hide"].tap()
+            XCTAssertEqual(password, app.textFields["passwordTextField"].firstMatch.value as? String)
+        }
     }
 }
