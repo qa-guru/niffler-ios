@@ -31,7 +31,7 @@ public class CategoriesRepository: ObservableObject {
     
     @Published public private(set) var categories: [String] = []
     
-    public private(set) var selectedCategory: String?
+    public var selectedCategory: String?
     
     private var categoriesDto: [CategoryDTO] = []
     

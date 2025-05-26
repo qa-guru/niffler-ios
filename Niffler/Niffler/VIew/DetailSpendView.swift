@@ -14,7 +14,6 @@ struct DetailSpendView: View {
     @State private var description: String = Defaults.description
     
     @EnvironmentObject var categoriesRepository: CategoriesRepository
-    @State private var selectedCategory: String = Defaults.selectedCategory // Can vary during editing
 
     @FocusState private var keyboardFocused: Bool
 
@@ -105,14 +104,11 @@ extension DetailSpendView {
         .onAppear(perform: {
             if let editSpendView {
                 prefillForEditing(editSpendView)
-            } else {
-                // Read last used category
-                selectedCategory = categoriesRepository.selectedCategory! // TODO: Handle unknown
             }
         })
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
-                CategorySelectorView(selectedCategory: $selectedCategory)
+                CategorySelectorView(selectedCategory: $categoriesRepository.selectedCategory)
                 
                 Spacer()
                 
@@ -125,7 +121,7 @@ extension DetailSpendView {
         amount = String(spend.amount)
         spendDate = spend.spendDate!
         description = spend.description
-        selectedCategory = spend.category.name
+        categoriesRepository.selectedCategory = spend.category.name
     }
     
     private func spendFromUI() -> Spends {
@@ -190,10 +186,10 @@ struct CategorySelectorView: View {
         
         Group {
             if categoriesRepository.categories.count > 0 {
-                Menu(selectedCategory) {
+                Menu(categoriesRepository.selectedCategory!) {
                     ForEach(categoriesRepository.categories, id: \.self) { category in
                         Button(category) {
-                            selectedCategory = category
+                            categoriesRepository.selectedCategory = category
                         }
                     }
                     
@@ -229,17 +225,16 @@ struct CategorySelectorView: View {
     @State private var isAddCategoryAlertVisible = false
     @State private var newCategoryName = ""
     
-    init(selectedCategory: Binding<String>) {
+    init(selectedCategory: Binding<String?>) {
         self._selectedCategory = selectedCategory
     }
     
-    @Binding private var selectedCategory: String
+    @Binding private var selectedCategory: String?
     @EnvironmentObject var categoriesRepository: CategoriesRepository
     
     private func addCategory() {
         // Add to model
         categoriesRepository.add(newCategoryName)
-        selectedCategory = newCategoryName
         
         // Hide UI
         newCategoryName = ""
