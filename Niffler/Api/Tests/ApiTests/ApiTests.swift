@@ -261,8 +261,6 @@ final class ApiE2ETests: XCTestCase {
 
 extension Auth {
     static func clearAuthorization() {
-        let removeDate = Date().addingTimeInterval(-2*60*60)
-        HTTPCookieStorage.shared.removeCookies(since: removeDate)
         Self.removeAuth()
     }
     
