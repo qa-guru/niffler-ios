@@ -48,6 +48,9 @@ public class Auth: Network {
      
     public static func removeAuth() {
         userDefaults.removeObject(forKey: "UserAuthToken")
+        
+        let removeDate = Calendar.current.date(byAdding: .day, value: -30, to: .now)!
+        HTTPCookieStorage.shared.removeCookies(since: removeDate)
     }
     
     init(
