@@ -8,7 +8,13 @@
 public class ConsoleLetPublisher : Publisher {
     public init() {}
     
-    public func publish(pageObjectName: String, elementInfo : ElementInfo) {
-        print("Инициализируем элемент '" + elementInfo.fieldName + "' → " + elementInfo.selector + " в PageObj: " + pageObjectName)
+    public func publish(pageObjectName: String, viewName: String, elementInfo : ElementInfo) {
+        print(
+            "Инициализируем элемент '"
+            + elementInfo.fieldName + "' → "
+            + elementInfo.selector + " в PageObj: "
+            + pageObjectName + " соответствующей View: "
+            + viewName
+        )
     }
 }

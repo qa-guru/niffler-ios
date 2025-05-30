@@ -1,6 +1,11 @@
+@testable import Niffler
 import XCTest
 
 class NewSpendPage: BasePage {
+    
+    init(app: XCUIApplication) {
+        super.init(app: app, viewTypes: [DetailSpendView.self])
+    }
     
     func inputSpent(title: String) {
         inputAmount()

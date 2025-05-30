@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "746853752B0CAE9700E48DFE"
-               BuildableName = "NifflerApp.app"
-               BlueprintName = "NifflerApp"
+               BuildableName = "Niffler.app"
+               BlueprintName = "Niffler"
                ReferencedContainer = "container:Niffler.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -73,8 +73,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "746853752B0CAE9700E48DFE"
-            BuildableName = "NifflerApp.app"
-            BlueprintName = "NifflerApp"
+            BuildableName = "Niffler.app"
+            BlueprintName = "Niffler"
             ReferencedContainer = "container:Niffler.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -117,8 +117,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "746853752B0CAE9700E48DFE"
-            BuildableName = "NifflerApp.app"
-            BlueprintName = "NifflerApp"
+            BuildableName = "Niffler.app"
+            BlueprintName = "Niffler"
             ReferencedContainer = "container:Niffler.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

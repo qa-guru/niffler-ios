@@ -1,11 +1,5 @@
 public protocol Publisher {
-    func publish(pageObjectName: String, elementInfo : ElementInfo)
-}
-
-extension Publisher {
-    func getInctance() -> Publisher {
-        return ConsolePropertyPublisher()
-    }
+    func publish(pageObjectName: String, viewName: String, elementInfo : ElementInfo)
 }
 
 public struct ElementInfo {

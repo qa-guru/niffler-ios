@@ -8,7 +8,7 @@ struct SpendCell: View {
         HStack {
             Toggle(isOn: $isChecked) {
             }
-            .toggleStyle(CheckboxToggleStyle())
+            .toggleStyle(NCheckboxToggleStyle())
             .padding()
 
             VStack(alignment: .leading, spacing: 4) {

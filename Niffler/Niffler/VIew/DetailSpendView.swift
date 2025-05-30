@@ -167,7 +167,7 @@ extension DetailSpendView {
 
             TextField(placeholder, text: text)
                 .padding(8)
-                .background(Color.gray50)
+                .background(AppColors.gray_50)
                 .cornerRadius(8)
                 .background(content: {
                     RoundedRectangle(cornerRadius: 8)

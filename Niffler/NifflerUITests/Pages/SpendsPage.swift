@@ -1,6 +1,12 @@
+@testable import Niffler
 import XCTest
 
 class SpendsPage: BasePage {
+    
+    init(app: XCUIApplication) {
+        super.init(app: app, viewTypes: [HeaderView.self, SpendsView.self])
+    }
+    
     func assertIsSpendsViewAppeared(file: StaticString = #filePath, line: UInt = #line) {
         XCTContext.runActivity(named: "Жду экран с тратами") { _ in
             waitSpendsScreen(file: file, line: line)
